@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unsere Wohnung ❤️</title>
+    <title>My Valentine ❤️</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
 </head>
@@ -21,20 +21,24 @@
 
     <div class="overlay-container">
         <div id="quiz-overlay" class="glass-card">
-            <div id="step1">
-                <p class="label">Frage 1</p>
-                <h3>Was ist mein liebstes Essen?</h3>
-                <div class="options">
-                    <label><input type="radio" name="food" value="wrong"> Pizza</label><br>
-                    <label><input type="radio" name="food" value="correct"> Sushi</label><br>
-                    <label><input type="radio" name="food" value="wrong"> Pasta</label>
-                </div>
-                <button class="primary-btn" onclick="nextStep(2)">Weiter</button>
+            <div id="step0">
+                <h3>Willkommen in unserem Pilz 🍄</h3>
+                <p class="intro-text">Wir haben uns so lange darauf gefreut - endlich ziehen wir zusammen. Du hörst, wie drinnen schon Töpfe klirren und riechst den Duft vom Abendessen, das ich gerade für uns koche. Aber Huch..?!? Die Tür ist verschlossen und du findest deinen Schlüssel nicht. Zum Glück erinnerst du dich an die Sicherheitsfragen, mit der du die Tür öffnen kannst...</p>
+                 <button class="btn" onclick="goToStep1()">Weiter</button>
             </div>
-
+            <div id="step1" class="hidden">
+                <p class="label">Sicherheitsfrage 1/2</p>
+                <h3>Was ist unsere größte Stärke?</h3>
+                <div class="options">
+                    <label><input type="radio" name="food" value="wrong"> Wir machen immer Party</label><br>
+                    <label><input type="radio" name="food" value="correct"> Wir kommuniziern liebevoll & untersützen uns gegenseitig</label><br>
+                    <label><input type="radio" name="food" value="wrong"> Wir haben bald dicke Uhren und fette Karren</label>
+                </div>
+                <button class="primary-btn" onclick="nextStep()">Weiter</button>
+            </div>
             <div id="step2" class="hidden">
-                <p class="label">Frage 2</p>
-                <h3>Finde das richtige Emoji:</h3>
+                <p class="label">Sicherheitsfrage 2/2</p>
+                <h3>Mit wem kann Eseli bald ganz viel Zeit verbringen:</h3>
                 <div class="emoji-grid">
                     <span onclick="wrongEmoji()">🐱</span>
                     <span onclick="openDoor()">🐧</span> 
@@ -45,8 +49,8 @@
             </div>
         </div>
 
-        <div id="main-container" class="glass-card hidden">
-            <h1>Willst du mein Valentine sein?</h1>
+        <div id="main-card" class="glass-card hidden">
+            <h1>Willst du mein Valentine sein? 🤗</h1>
             <div class="button-group">
                 <button id="yesButton" class="primary-btn" onclick="celebrate()">Ja!</button>
                 <button id="noButton" class="secondary-btn">Nein</button>
