@@ -21,24 +21,22 @@ function nextStep() {
 }
 
 function openDoor() {
-    // 1. Quiz-Overlay ausfaden
     const quiz = document.getElementById('quiz-overlay');
     if (quiz) {
         quiz.style.opacity = '0';
-        setTimeout(() => {
-            quiz.style.display = 'none';
-        }, 500);
+        setTimeout(() => { quiz.style.display = 'none'; }, 500);
     }
 
-    // 2. Tür aufschwingen
     const door = document.getElementById('door');
-    // FIX: Wir greifen die Klasse .door-scene direkt ab
+    // WICHTIG: Hier muss exakt die Klasse aus deinem HTML stehen
     const doorScene = document.querySelector('.door-scene');
     
     if (door) door.classList.add('door-open');
-    if (doorScene) doorScene.style.background = "transparent";
+    if (doorScene) {
+        doorScene.style.background = "transparent";
+        doorScene.style.pointerEvents = "none"; // Damit man durchklicken kann
+    }
 
-    // 3. Finale Frage einblenden
     setTimeout(() => {
         const main = document.getElementById('main-card');
         if (main) {
