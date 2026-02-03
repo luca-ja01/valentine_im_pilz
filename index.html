@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsere Wohnung ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="apartment-view"></div>
+
+    <div class="door-scene">
+        <div class="door-frame">
+            <div id="door" class="door">
+                <div class="knob"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-container">
+        <div id="quiz-overlay" class="glass-card">
+            <div id="step1">
+                <p class="label">Frage 1</p>
+                <h3>Was ist mein liebstes Essen?</h3>
+                <div class="options">
+                    <label><input type="radio" name="food" value="wrong"> Pizza</label><br>
+                    <label><input type="radio" name="food" value="correct"> Sushi</label><br>
+                    <label><input type="radio" name="food" value="wrong"> Pasta</label>
+                </div>
+                <button class="primary-btn" onclick="nextStep(2)">Weiter</button>
+            </div>
+
+            <div id="step2" class="hidden">
+                <p class="label">Frage 2</p>
+                <h3>Finde das richtige Emoji:</h3>
+                <div class="emoji-grid">
+                    <span onclick="wrongEmoji()">🐱</span>
+                    <span onclick="openDoor()">🐧</span> 
+                    <span onclick="wrongEmoji()">🐻</span>
+                    <span onclick="wrongEmoji()">🐨</span>
+                </div>
+                <p id="hint" class="error"></p>
+            </div>
+        </div>
+
+        <div id="main-container" class="glass-card hidden">
+            <h1>Willst du mein Valentine sein?</h1>
+            <div class="button-group">
+                <button id="yesButton" class="primary-btn" onclick="celebrate()">Ja!</button>
+                <button id="noButton" class="secondary-btn">Nein</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

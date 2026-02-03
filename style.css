@@ -1,0 +1,120 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-blur: blur(12px);
+    --text-color: #333;
+    --accent: #ffb3ba;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* 1. Das Wohnungsbild im Hintergrund */
+.apartment-view {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('wohnung.png'); /* Prüfe ob es .jpg oder .png ist! */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* 2. Die Tür-Szene */
+.door-scene {
+    position: absolute;
+    z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; height: 100%;
+    background: rgba(230, 230, 230, 0.4); /* Leichter Schleier vor dem Öffnen */
+    transition: background 1s;
+}
+
+.door-frame {
+    z-index: 2;
+    /* Wir nutzen % der Bildschirmbreite, damit es immer passt */
+    width: 58vw; 
+    /* Berechnet die Höhe basierend auf der Breite (Goldener Schnitt für Türen) */
+    aspect-ratio: 1 / 1.8; 
+    
+    max-width: 250px; 
+    border: 8px solid #6d4c41;
+    perspective: 1200px;
+    background: transparent;
+    
+    /* Positionierung: Hier kannst du die Tür auf dem Bild verschieben */
+    margin-top: 5vh; 
+}
+
+.glass-card h3 {
+    font-size: clamp(0.9rem, 4vw, 1.1rem); /* Skaliert zwischen 0.9 und 1.1rem */
+}
+
+.door {
+    width: 100%; height: 100%;
+    background: #f4f1ea;
+    transform-origin: left;
+    transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 15px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+}
+
+.door-open { transform: rotateY(-115deg); }
+
+.knob { width: 14px; height: 14px; background: gold; border-radius: 50%; }
+
+/* 3. Glass-Morphism Design */
+.overlay-container {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    display: flex; justify-content: center;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    padding: 20px;
+    border-radius: 24px;
+    width: 85%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hidden { display: none !important; }
+
+/* Buttons & Text */
+h1 { 
+    font-size: 1.4rem; 
+    margin-bottom: 15px; 
+}
+
+h3 { 
+    font-size: 1.05rem; 
+    line-height: 1.4;
+}
+
+.label { 
+    font-size: 0.6rem; 
+    letter-spacing: 2px;
+}
+
+.primary-btn {
+    background: white; border: none;
+    padding: 12px 25px; border-radius: 12px;
+    margin-top: 15px; cursor: pointer;
+    font-size: 1rem; transition: 0.3s;
+}
+
+.primary-btn:hover { background: var(--accent); color: white; }
+
+.emoji-grid span { font-size: 2.5rem; cursor: pointer; margin: 10px; display: inline-block; transition: 0.2s; }
+.emoji-grid span:hover { transform: scale(1.2); }
