@@ -36,30 +36,32 @@ body, html {
 
 .door-frame {
     z-index: 2;
-    /* Wir nutzen % der Bildschirmbreite, damit es immer passt */
-    width: 58vw; 
-    /* Berechnet die Höhe basierend auf der Breite (Goldener Schnitt für Türen) */
-    aspect-ratio: 1 / 1.8; 
+    /* Erhöht von 80vw auf 92vw, damit sie den Durchgang im Bild sicher verdeckt */
+    width: 92vw; 
+    /* Das Seitenverhältnis bleibt stabil */
+    aspect-ratio: 1 / 1.7; 
     
-    max-width: 250px; 
-    border: 8px solid #6d4c41;
+    max-width: 340px; 
+    max-height: 580px;
+    
+    border: none; /* Wir entfernen den dicken braunen Rahmen, damit nur die Tür zählt */
     perspective: 1200px;
     background: transparent;
     
-    /* Positionierung: Hier kannst du die Tür auf dem Bild verschieben */
-    margin-top: 5vh; 
-}
-
-.glass-card h3 {
-    font-size: clamp(0.9rem, 4vw, 1.1rem); /* Skaliert zwischen 0.9 und 1.1rem */
+    /* Schiebt die Tür ein Stück nach oben/unten, um den Bild-Rahmen zu treffen */
+    margin-top: -2vh; 
 }
 
 .door {
-    width: 100%; height: 100%;
-    background: #f4f1ea;
+    width: 100%;
+    height: 100%;
+    background: #fdf5e6;
+    border: 2px solid #6d4c41; /* Ein feiner Rahmen direkt an der Tür sieht cleaner aus */
     transform-origin: left;
-    transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex; align-items: center; justify-content: flex-end;
+    transition: transform 1.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     padding-right: 15px;
     box-shadow: 5px 0 15px rgba(0,0,0,0.3);
 }
@@ -93,18 +95,27 @@ body, html {
 
 /* Buttons & Text */
 h1 { 
-    font-size: 1.4rem; 
-    margin-bottom: 15px; 
+    font-size: 1.25rem !important; 
+    letter-spacing: -0.5px;
 }
 
 h3 { 
-    font-size: 1.05rem; 
-    line-height: 1.4;
+    font-size: 1rem !important; 
+    margin-bottom: 10px;
 }
 
+/* Die Quiz-Optionen (Radio Buttons + Text) */
+.options label {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Der kleine Text über den Fragen */
 .label { 
-    font-size: 0.6rem; 
-    letter-spacing: 2px;
+    font-size: 0.55rem !important; 
+    letter-spacing: 1.5px;
+    opacity: 0.7;
 }
 
 .primary-btn {
